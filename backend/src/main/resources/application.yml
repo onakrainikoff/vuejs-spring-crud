@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+  data:
+    rest:
+      basePath: '/'
+  datasource:
+    name: 'postgres-db'
+    type: 'com.zaxxer.hikari.HikariDataSource'
+    driver-class-name: 'org.postgresql.Driver'
+    url: 'jdbc:postgresql://localhost:5432/postgres?ApplicationName=vuejs-spring-crud'
+    username: 'postgres'
+    password: 'postgres'
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 5
+      connection-timeout: 10000
+      validation-timeout: 5000
+      connection-test-query: 'SELECT 1'
+    jpa:
+      properties:
+        hibernate.dialect: 'org.hibernate.dialect.PostgreSQLDialect'
+  flyway:
+    enabled: true
+    validate-on-migrate: true
+logging:
+  level.root: INFO
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %class{36}:%line - %msg%n'
