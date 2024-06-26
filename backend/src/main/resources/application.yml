@@ -4,6 +4,7 @@ spring:
   data:
     rest:
       basePath: '/'
+      detection-strategy: annotated
   datasource:
     name: 'postgres-db'
     type: 'com.zaxxer.hikari.HikariDataSource'
